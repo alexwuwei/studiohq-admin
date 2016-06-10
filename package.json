@@ -1,0 +1,24 @@
+{
+  "name": "studiohq-admin",
+  "version": "1.0.0",
+  "description": "Front End Mock Admin Dashboard built using React.JS, also leverages JSX and CSS preprocessing",
+  "main": "client-server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexwuwei/studiohq-admin.git"
+  },
+  "author": "Hugo A Guerra <guerrahugoa@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexwuwei/studiohq-admin/issues"
+  },
+  "homepage": "https://github.com/alexwuwei/studiohq-admin#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0"
+  }
+}
