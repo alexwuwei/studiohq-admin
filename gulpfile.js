@@ -12,7 +12,7 @@ var reload       = browserSync.reload;
 var sass         = require('gulp-sass');
 var sourcemaps   = require('gulp-sourcemaps');
 
-var onError = function(err) {
+var onError = (err) => {
   notify.onError({
     title:    "Error",
     message:  "<%= error %>",
@@ -34,7 +34,7 @@ var jsFiles = {
   ]
 };
 
-gulp.task('eslint', function() {
+gulp.task('eslint', () => {
   return gulp.src(jsFiles.source)
     .pipe(eslint({
       baseConfig: {
@@ -47,28 +47,36 @@ gulp.task('eslint', function() {
     .pipe(eslint.failAfterError());
 });
 
-gulp.task('copy-react', function() {
+gulp.task('copy-react', () => {
   return gulp.src('node_modules/react/dist/react.js')
-    .pipe(newer('assets/js/vendor/react.js'))
-    .pipe(gulp.dest('assets/js/src/vendor'));
+    .pipe(newer('dev/js/vendor/react.js'))
+    .pipe(gulp.dest('dev/js/vendor'));
 });
 
-gulp.task('copy-react-dom', function() {
+gulp.task('copy-react-dom', () => {
   return gulp.src('node_modules/react-dom/dist/react-dom.js')
     .pipe(newer('dev/js/vendor/react-dom.js'))
     .pipe(gulp.dest('dev/js/vendor'));
 });
 
-gulp.task('copy-js-vendor', function() {
+gulp.task('copy-js-vendor', () => {
   return gulp
     .src([
       'dev/js/vendor/react.js',
       'dev/js/vendor/react-dom.js'
     ])
-    .pipe(gulp.dest('dev/js'));
+    .pipe(gulp.dest('public/js/vendor'));
 });
 
-gulp.task('concat', ['copy-react', 'copy-react-dom', 'eslint'], function() {
+gulp.task('copy-html', () => {
+  return gulp
+    .src([
+      'dev/*.html',
+    ])
+    .pipe(gulp.dest('public/'));
+});
+
+gulp.task('concat', ['copy-react', 'copy-react-dom', 'eslint'], () => {
   return gulp.src(jsFiles.vendor.concat(jsFiles.source))
     .pipe(sourcemaps.init())
     .pipe(babel({
@@ -79,10 +87,10 @@ gulp.task('concat', ['copy-react', 'copy-react-dom', 'eslint'], function() {
     }))
     .pipe(concat('app.js'))
     .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('dev/js'));
+    .pipe(gulp.dest('public/js'));
 });
 
-gulp.task('sass', function() {
+gulp.task('sass', () => {
   var autoprefixerOptions = {
     browsers: ['last 2 versions'],
   };
@@ -105,19 +113,19 @@ gulp.task('sass', function() {
       .pipe(sass(sassOptions))
       .pipe(autoprefixer(autoprefixerOptions))
       .pipe(sourcemaps.write('./'))
-      .pipe(gulp.dest('dev/css'))
+      .pipe(gulp.dest('public/css'))
       .pipe(filter(filterOptions))
       .pipe(reload(reloadOptions));
   });
 
   // Watch JS/JSX and Sass files
-gulp.task('watch', function() {
+gulp.task('watch', () => {
   gulp.watch('dev/js/**/*.{js,jsx}', ['concat']);
   gulp.watch('dev/scss/*.scss', ['sass']);
 });
 
 // BrowserSync
-gulp.task('browsersync', function() {
+gulp.task('browsersync', () => {
   browserSync({
     server: {
       baseDir: './'
@@ -128,5 +136,5 @@ gulp.task('browsersync', function() {
   });
 });
 
-gulp.task('build', ['sass', 'copy-js-vendor', 'concat']);
+gulp.task('build', ['sass', 'copy-js-vendor', 'copy-html', 'concat']);
 gulp.task('default', ['build', 'browsersync', 'watch']);
