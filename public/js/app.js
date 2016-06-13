@@ -118,14 +118,36 @@ React.createElement("ul", {className: "second-nav-list"},
 }
 });
 
+var FormRender = React.createClass({displayName: "FormRender",
+  render: () => {
+    return (
+      React.createElement("section", {className: "form"}, 
+        React.createElement("h1", null, "hello")
+      )
+    )
+  }
+})
+
 var Locations = React.createClass({displayName: "Locations",
+  getInitialState: () => {
+    return {showForm: false}
+  },
+  clickHandler: () => {
+    this.setState({showForm: true});
+  },
 render: () => {
 return (
   React.createElement("section", {className: "locations-container"}, 
 React.createElement("div", null, "Locations placeholder"), 
 locations.map((location, i) => {
-      var initState = false;
-      return React.createElement("div", {onClick: "this.showForm"}, location.name)
+      // var initState = false;
+      return (
+        React.createElement("section", null, 
+
+          React.createElement("div", {onClick: this.clickHandler}, location.name), 
+           this.state.showForm ? React.createElement(FormRender, null) : null, ")"
+        )
+      )
     }), 
   React.createElement("a", {href: "#"}, "Create New Location"), 
    React.createElement("div", {className: "buttons-container"}, 
@@ -136,7 +158,7 @@ locations.map((location, i) => {
 );
 },
   showForm: () => {
-  alert("hello");
+  console.log("hello");
 }
 });
 

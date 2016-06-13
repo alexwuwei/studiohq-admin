@@ -118,14 +118,36 @@ return (
 }
 });
 
+var FormRender = React.createClass({
+  render: () => {
+    return (
+      <section className="form">
+        <h1>hello</h1>
+      </section>
+    )
+  }
+})
+
 var Locations = React.createClass({
+  getInitialState: () => {
+    return {showForm: false}
+  },
+  clickHandler: () => {
+    this.setState({showForm: true});
+  },
 render: () => {
 return (
   <section className="locations-container">
 <div>Locations placeholder</div>
 {locations.map((location, i) => {
-      var initState = false;
-      return <div onClick="this.showForm">{location.name}</div>
+      // let formState = this.state.showForm;
+      return (
+        <section>
+
+          <div onClick={this.clickHandler}>{location.name}</div>
+          { this.state.showForm ? <FormRender /> : null })
+        </section>
+      )
     })}
   <a href="#">Create New Location</a>
    <div className="buttons-container">
@@ -136,7 +158,7 @@ return (
 );
 },
   showForm: () => {
-  alert("hello");
+  console.log("hello");
 }
 });
 
