@@ -11,6 +11,7 @@ var plumber      = require('gulp-plumber');
 var reload       = browserSync.reload;
 var sass         = require('gulp-sass');
 var sourcemaps   = require('gulp-sourcemaps');
+var react        = require('gulp-react');
 
 var onError = (err) => {
   notify.onError({
@@ -76,19 +77,25 @@ gulp.task('copy-html', () => {
     .pipe(gulp.dest('public/'));
 });
 
-gulp.task('concat', ['copy-react', 'copy-react-dom', 'eslint'], () => {
-  return gulp.src(jsFiles.vendor.concat(jsFiles.source))
-    .pipe(sourcemaps.init())
-    .pipe(babel({
-      only: [
-        'dev/js/components',
-      ],
-      compact: false
-    }))
-    .pipe(concat('app.js'))
-    .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('public/js'));
-});
+// gulp.task('concat', ['copy-react', 'copy-react-dom', 'eslint'], () => {
+//   return gulp.src(jsFiles.vendor.concat(jsFiles.source))
+//     .pipe(sourcemaps.init())
+//     .pipe(babel({
+//       only: [
+//         'dev/js/components',
+//       ],
+//       compact: false
+//     }))
+//     .pipe(concat('app.js'))
+//     .pipe(sourcemaps.write('./'))
+//     .pipe(gulp.dest('public/js'));
+// });
+
+gulp.task('jsx', () => {
+  return gulp.src('dev/js/components/*.jsx')
+  .pipe(react())
+  .pipe(gulp.dest('public/js'))
+})
 
 gulp.task('sass', () => {
   var autoprefixerOptions = {
@@ -136,5 +143,5 @@ gulp.task('browsersync', () => {
   });
 });
 
-gulp.task('build', ['sass', 'copy-js-vendor', 'copy-html', 'concat']);
+gulp.task('build', ['sass', 'copy-js-vendor', 'copy-html', 'jsx']);
 gulp.task('default', ['build', 'browsersync', 'watch']);
