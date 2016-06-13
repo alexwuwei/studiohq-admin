@@ -120,12 +120,13 @@ React.createElement("ul", {className: "second-nav-list"},
 
 var Locations = React.createClass({displayName: "Locations",
 render: () => {
-//     var locationsArray = this.props.locations.map((location) => {
-
-//     });
 return (
   React.createElement("section", {className: "locations-container"}, 
 React.createElement("div", null, "Locations placeholder"), 
+locations.map((location, i) => {
+      var initState = false;
+      return React.createElement("div", {onClick: "this.showForm"}, location.name)
+    }), 
   React.createElement("a", {href: "#"}, "Create New Location"), 
    React.createElement("div", {className: "buttons-container"}, 
      React.createElement("button", {id: "button cancel-button"}, "Cancel"), 
@@ -133,12 +134,13 @@ React.createElement("div", null, "Locations placeholder"),
     )
   )
 );
+},
+  showForm: () => {
+  alert("hello");
 }
 });
 
 ReactDOM.render(React.createElement(Main, null), document.getElementById('container'));
-
-
 
 
 

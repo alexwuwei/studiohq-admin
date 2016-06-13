@@ -1,0 +1,63 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+body {
+  background-color: blue; }
+
+* {
+  font-family: Montserrat;
+  background-color: #FBFCFD; }
+
+.outer {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column; }
+  @media all and (min-width: 500px) {
+    .outer {
+      -ms-flex-direction: row;
+          flex-direction: row;
+      -ms-flex-pack: distribute;
+          justify-content: space-around; } }
+
+.left-container {
+  display: -ms-flexbox;
+  display: flex;
+  width: 20%;
+  border: 1px dotted blue;
+  padding-left: 3%; }
+  @media all and (min-width: 500px) {
+    .left-container {
+      -ms-flex-direction: column;
+          flex-direction: column; } }
+
+.primary-nav {
+  list-style-type: none; }
+
+.right-container {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  width: 80%;
+  border: 1px dotted green; }
+
+.results-container {
+  border: 1px solid black;
+  box-shadow: 1px 1px 1px #000000;
+  background-color: white; }
+
+.second-nav-list {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  list-style-type: none; }
+
+.results-header {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row; }
+
+/*# sourceMappingURL=layout.css.map */

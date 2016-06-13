@@ -1,0 +1,63 @@
+body {
+  background-color: blue;
+}
+
+
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+* {
+  font-family: Montserrat;
+  background-color: #FBFCFD;
+}
+
+.outer {
+  display: flex;
+  flex-direction: column;
+  @media all and (min-width: 500px) {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+
+.left-container {
+  display: flex;
+  width: 20%;
+  border: 1px dotted blue;
+  padding-left: 3%;
+  @media all and (min-width: 500px) {
+    flex-direction: column;
+  }
+}
+
+.primary-nav {
+  list-style-type: none;
+}
+
+.right-container {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  border: 1px dotted green;
+   @media all and (min-width: 500px) {
+
+  }
+}
+
+.results-container {
+  border: 1px solid black;
+  box-shadow: 1px 1px 1px #000000;
+  background-color: white;
+}
+
+.second-nav-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  list-style-type: none;
+}
+
+.results-header {
+  display: flex;
+  flex-direction: row;
+}

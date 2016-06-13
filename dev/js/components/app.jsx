@@ -120,12 +120,13 @@ return (
 
 var Locations = React.createClass({
 render: () => {
-//     var locationsArray = this.props.locations.map((location) => {
-
-//     });
 return (
   <section className="locations-container">
 <div>Locations placeholder</div>
+{locations.map((location, i) => {
+      var initState = false;
+      return <div onClick="this.showForm">{location.name}</div>
+    })}
   <a href="#">Create New Location</a>
    <div className="buttons-container">
      <button id="button cancel-button">Cancel</button>
@@ -133,12 +134,13 @@ return (
     </div>
   </section>
 );
+},
+  showForm: () => {
+  alert("hello");
 }
 });
 
 ReactDOM.render(<Main />, document.getElementById('container'));
-
-
 
 
 
