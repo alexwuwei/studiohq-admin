@@ -127,7 +127,7 @@ gulp.task('sass', () => {
 
   // Watch JS/JSX and Sass files
 gulp.task('watch', () => {
-  gulp.watch('dev/js/**/*.{js,jsx}', ['concat']);
+  gulp.watch('dev/js/**/*.{js,jsx}', ['jsx']);
   gulp.watch('dev/scss/*.scss', ['sass']);
 });
 

@@ -1,15 +1,4 @@
-body {
-  background-color: blue;
-}
-
-
-
-@import url(https://fonts.googleapis.com/css?family=Montserrat);
-
-* {
-  font-family: Montserrat;
-  background-color: #FBFCFD;
-}
+$border-color: #E7EAF1;
 
 .outer {
   display: flex;
@@ -23,8 +12,10 @@ body {
 .left-container {
   display: flex;
   width: 20%;
-  border: 1px dotted blue;
   padding-left: 3%;
+  h2 > span {
+    font-weight: bolder;
+  }
   @media all and (min-width: 500px) {
     flex-direction: column;
   }
@@ -32,32 +23,69 @@ body {
 
 .primary-nav {
   list-style-type: none;
+  padding-left: none;
+  font-size: 20px;
+  color: #3A405B;
+  li {
+    padding-bottom: 7%;
+  };
 }
 
 .right-container {
   display: flex;
   flex-direction: column;
   width: 80%;
-  border: 1px dotted green;
    @media all and (min-width: 500px) {
 
   }
 }
 
 .results-container {
-  border: 1px solid black;
-  box-shadow: 1px 1px 1px #000000;
+  // border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px #000000;
   background-color: white;
+  width: 51.313em;
+  height: 37.250em;
+  h2 {
+    font-size: 30px;
+    padding-left: 1em;
+  }
 }
 
 .second-nav-list {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-items: center;
   list-style-type: none;
+  border-top: 1px solid $border-color;
+  border-bottom: 1px solid $border-color;
+  height: 3.250em;
+  background-color: #FFFFFF;
+  margin: 0px;
+  li > a {
+    text-decoration: none;
+    color: #3A405B;
+  }
+}
+
+.location-instance {
+  height: 7.688em;
+  display: flex;
+  align-items: center;
+  padding-left: 2em;
+  font-size: 20px;
+  // border-top: 1px solid $border-color;
+  border-bottom: 1px solid $border-color;
 }
 
 .results-header {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  h4 {
+    color: #3A405B;
+    font-size: 18px;
+  }
 }
