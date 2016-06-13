@@ -1,1 +1,1 @@
-{"version":3,"sources":[],"names":[],"mappings":"","file":"base.css","sourceRoot":"/source/","sourcesContent":[]}
+{"version":3,"sources":["base.scss"],"names":[],"mappings":"AACA,gEAAY;AAEZ;EACE,wBAAwB;EACxB,0BAA0B,EAC3B","file":"base.css","sourcesContent":["\n@import url(https://fonts.googleapis.com/css?family=Montserrat);\n\n* {\n  font-family: Montserrat;\n  background-color: #FBFCFD;\n}\n"],"sourceRoot":"/source/"}

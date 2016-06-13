@@ -1,11 +1,3 @@
-@import url(https://fonts.googleapis.com/css?family=Montserrat);
-body {
-  background-color: blue; }
-
-* {
-  font-family: Montserrat;
-  background-color: #FBFCFD; }
-
 .outer {
   display: -ms-flexbox;
   display: flex;
@@ -22,28 +14,38 @@ body {
   display: -ms-flexbox;
   display: flex;
   width: 20%;
-  border: 1px dotted blue;
   padding-left: 3%; }
+  .left-container h2 > span {
+    font-weight: bolder; }
   @media all and (min-width: 500px) {
     .left-container {
       -ms-flex-direction: column;
           flex-direction: column; } }
 
 .primary-nav {
-  list-style-type: none; }
+  list-style-type: none;
+  padding-left: none;
+  font-size: 20px;
+  color: #3A405B; }
+  .primary-nav li {
+    padding-bottom: 7%; }
 
 .right-container {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-direction: column;
       flex-direction: column;
-  width: 80%;
-  border: 1px dotted green; }
+  width: 80%; }
 
 .results-container {
-  border: 1px solid black;
-  box-shadow: 1px 1px 1px #000000;
-  background-color: white; }
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px #000000;
+  background-color: white;
+  width: 51.313em;
+  height: 37.250em; }
+  .results-container h2 {
+    font-size: 30px;
+    padding-left: 1em; }
 
 .second-nav-list {
   display: -ms-flexbox;
@@ -52,12 +54,37 @@ body {
       flex-direction: row;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  list-style-type: none; }
+  -ms-flex-align: center;
+      align-items: center;
+  list-style-type: none;
+  border-top: 1px solid #E7EAF1;
+  border-bottom: 1px solid #E7EAF1;
+  height: 3.250em;
+  background-color: #FFFFFF;
+  margin: 0px; }
+  .second-nav-list li > a {
+    text-decoration: none;
+    color: #3A405B; }
+
+.location-instance {
+  height: 7.688em;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  padding-left: 2em;
+  font-size: 20px;
+  border-bottom: 1px solid #E7EAF1; }
 
 .results-header {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-direction: row;
-      flex-direction: row; }
+      flex-direction: row;
+  -ms-flex-align: center;
+      align-items: center; }
+  .results-header h4 {
+    color: #3A405B;
+    font-size: 18px; }
 
 /*# sourceMappingURL=layout.css.map */
